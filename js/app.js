@@ -64,6 +64,34 @@ function generateQuote()
   }, "6000");
 }
 
+let darkmode = false;
+let lightswitchCooldown = false;
+
+function lightswitch(){
+  if(darkmode === false && lightswitchCooldown === false){
+    //turn darkmode on
+    darkmode=true;
+    lightswitchCooldown = true;
+    console.log(darkmode);
+    document.getElementById('main').classList.add("darkmode");
+    document.getElementById('switch').src = 'img/lightmode.png'
+    setTimeout( () => {
+      lightswitchCooldown=false;
+    }, 1000);
+  }
+  else if(darkmode === true && lightswitchCooldown === false){
+    //turn darkmode off
+    darkmode=false;
+    lightswitchCooldown=true
+    console.log(darkmode);
+    document.getElementById('main').classList.remove("darkmode");
+    document.getElementById('switch').src = 'img/darkmode.svg'
+    setTimeout( () => {
+      lightswitchCooldown=false;
+    }, 1000);
+  }
+}
+
 function refreshSite() {
   location.reload();
 }

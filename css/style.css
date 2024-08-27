@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+body.darkmode  {
+  background-color: #202020 ;
+}
+
+.darkmode p,
+.darkmode h,
+.darkmode div{
+  color: #C7C7C7;
+}
+
+
+.darkmode #bottomcredit{
+  background-color: #181818;
+}
+
 .titlecontainer{
   line-height: 0;
   width: 22em;
   cursor: pointer;
+  user-select: none;
 }
 
 .container{
@@ -12,13 +28,23 @@
   display: flex;
 }
 
+#switch{
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.lightswitch{
+  bottom: 4em;
+  position: absolute;
+}
+
 @media (max-width: 600px){
   .centerelement{
     flex-direction: column;
   }
 }
 
-@media (max-width: 380px){
+@media (max-width: 400px){
   h1{
     font-size: 1.6em;
   }
@@ -63,13 +89,6 @@ body{
   float:right;
 }
 
-.hide{
-  height: 0;
-  display: block;
-  overflow: hidden;
-  transition:all 2s ease-in-out;
-}
-
 #inputbutton{
   float:right;
   width: 15em;
@@ -103,7 +122,7 @@ body{
   background-color: #E6E7E7;
   bottom: 0;
   width: 100%;
-  margin-left: -2em;
+  margin-left: -2.5em;
   font-size: 0.8em;
 }
 
