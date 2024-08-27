@@ -10,10 +10,24 @@ body.darkmode  {
   color: #C7C7C7;
 }
 
-
 .darkmode #bottomcredit{
   background-color: #181818;
 }
+
+body.no-js-darkmode  {
+  background-color: #202020 ;
+}
+
+.no-js-darkmode p,
+.no-js-darkmode h,
+.no-js-darkmode div{
+  color: #C7C7C7;
+}
+
+.no-js-darkmode #bottomcredit{
+  background-color: #181818;
+}
+
 
 .titlecontainer{
   line-height: 0;

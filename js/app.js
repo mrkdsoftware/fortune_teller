@@ -1,5 +1,15 @@
-window.onload = function (){
+let darkmode;
 
+window.onload = function (){
+  darkmode = localStorage.getItem('darkmode') === 'true';
+
+  if (darkmode) {
+    document.getElementById('main').classList.add("darkmode");
+    document.getElementById('switch').src = 'img/lightmode.png';
+  } else {
+    document.getElementById('main').classList.remove("darkmode");
+    document.getElementById('switch').src = 'img/darkmode.svg';
+  }
 }
 
 let sentenceParts;
@@ -64,33 +74,21 @@ function generateQuote()
   }, "6000");
 }
 
-let darkmode = false;
 let lightswitchCooldown = false;
 
 function lightswitch(){
-  if(darkmode === false && lightswitchCooldown === false){
-    //turn darkmode on
-    darkmode=true;
+  if(!lightswitchCooldown){
+    darkmode = !darkmode;
+    localStorage.setItem('darkmode', darkmode);
+    document.getElementById('main').classList.toggle("darkmode", darkmode);
+    document.getElementById('switch').src = darkmode ? 'img/lightmode.png' : 'img/darkmode.svg';
     lightswitchCooldown = true;
-    console.log(darkmode);
-    document.getElementById('main').classList.add("darkmode");
-    document.getElementById('switch').src = 'img/lightmode.png'
-    setTimeout( () => {
-      lightswitchCooldown=false;
-    }, 1000);
-  }
-  else if(darkmode === true && lightswitchCooldown === false){
-    //turn darkmode off
-    darkmode=false;
-    lightswitchCooldown=true
-    console.log(darkmode);
-    document.getElementById('main').classList.remove("darkmode");
-    document.getElementById('switch').src = 'img/darkmode.svg'
-    setTimeout( () => {
-      lightswitchCooldown=false;
-    }, 1000);
-  }
+    setTimeout(() => lightswitchCooldown = false, 1000);
+    }
 }
+
+
+
 
 function refreshSite() {
   location.reload();

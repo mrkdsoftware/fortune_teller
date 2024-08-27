@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body id="main" class="">
+<body id="main" class="no-js-darkmode">
 
 <div class="container">
     <div class="titlecontainer">
@@ -65,6 +65,13 @@
 <div id="bottomcredit">
   <p>made by @mrkdsoftware</p>
 </div>
+
+  <script>
+    if (localStorage.getItem('darkmode') !== 'true') {
+      document.body.classList.remove('no-js-darkmode');
+    }
+  </script>
+
   <script src="js/app.js"></script>
 
 </body>
