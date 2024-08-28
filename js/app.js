@@ -10,6 +10,10 @@ window.onload = function (){
     document.getElementById('main').classList.remove("darkmode");
     document.getElementById('switch').src = 'img/darkmode.svg';
   }
+
+  if (localStorage.getItem('darkmode') !== 'true') {
+    document.body.classList.remove('no-js-darkmode');
+  }
 }
 
 let sentenceParts;
@@ -80,15 +84,13 @@ function lightswitch(){
   if(!lightswitchCooldown){
     darkmode = !darkmode;
     localStorage.setItem('darkmode', darkmode);
+    document.getElementById('main').classList.remove("no-js-darkmode")
     document.getElementById('main').classList.toggle("darkmode", darkmode);
     document.getElementById('switch').src = darkmode ? 'img/lightmode.png' : 'img/darkmode.svg';
     lightswitchCooldown = true;
     setTimeout(() => lightswitchCooldown = false, 1000);
     }
 }
-
-
-
 
 function refreshSite() {
   location.reload();
